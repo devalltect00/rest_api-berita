@@ -1,0 +1,185 @@
+{
+    "source" :[
+        {
+            "id" : 1,
+            "name" : "CNN Indonesia",
+            "link" : [
+                "https://www.cnnindonesia.com/nasional",
+                "https://www.cnnindonesia.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : "article", "class" : null}
+            }
+        },{
+            "id" : 2,
+            "name" : "KapanLagi",
+            "link" : [
+                "https://www.kapanlagi.com/"
+            ],
+            "status" : "not ready",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : null, "class" : "clearfix"}
+            }
+        },{
+            "id" : 3,
+            "name" : "JawaPos",
+            "link" : [
+                "https://www.jawapos.com/"
+            ],
+            "status" : "not ready",
+            "message" : ""
+        },{
+            "id" : 4,
+            "name" : "IDN Times",
+            "link" : [
+                "https://www.idntimes.com/"
+            ],
+            "status" : "not ready",
+            "message" : ""
+        },{
+            "id" : 5,
+            "name" : "merdeka",
+            "link" : [
+                "https://www.merdeka.com/peristiwa",
+                "https://www.merdeka.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : "li", "class" : "clearfix"}
+            }
+        },{
+            "id" : 6,
+            "name" : "suara",
+            "link" : [
+                "https://www.liputan6.com/news/peristiwa",
+                "https://www.suara.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : "li", "class" : "headline--bottom-slider__item"}
+            }
+        },{
+            "id" : 7,
+            "name" : "liputan6",
+            "link" : [
+                "https://www.liputan6.com/"
+            ],
+            "status" : "not ready",
+            "message" : ""
+        },{
+            "id" : 8,
+            "name" : "kumparan",
+            "link" : [
+                "https://kumparan.com/"
+            ],
+            "status" : "not ready",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : null, "class" : "sc-5mlv5q-0"}
+            }
+        },{
+            "id" : 9,
+            "name" : "grid",
+            "link" : [
+                "https://www.grid.id/"
+            ],
+            "status" : "not ready",
+            "message" : ""
+        },{
+            "id" : 10,
+            "name" : "sindonews",
+            "link" : [
+                "https://nasional.sindonews.com/",
+                "https://www.sindonews.com/"
+            ],
+            "status" : "not ready",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : null, "class" : "content-row"}
+            }
+        },{
+            "id" : 11,
+            "name" : "detik",
+            "link" : [
+                "https://news.detik.com/",
+                "https://www.detik.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : "article", "class" : null}
+            }
+        },{
+            "id" : 12,
+            "name" : "kompas",
+            "link" : [
+                "https://news.kompas.com/",
+                "https://www.kompas.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : null, "class" : "article__grid"}
+            }
+        },{
+            "id" : 13,
+            "name" : "tribunnews",
+            "link" : [
+                "https://www.tribunnews.com/",
+                "https://www.tribunnews.com/news"
+            ],
+            "status" : "not ready",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : "li", "class" : null}
+            }
+        },{
+            "id" : 14,
+            "name" : "PikiranRakyat",
+            "link" : [
+                "https://www.pikiran-rakyat.com/nasional",
+                "https://www.pikiran-rakyat.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : {"tag" : null, "class" : "latest__item"}
+            }
+        },{
+            "id" : 15,
+            "name" : "okezone",
+            "link" : [
+                "https://news.okezone.com/",
+                "https://www.okezone.com/"
+            ],
+            "status" : "1",
+            "message" : "",
+            "page" : {
+                "groupEach" : [
+                    {"tag" : null, "class" : "list-contentx"},
+                    {"tag" : null, "class" : "headline-right-news ga_HeadlineTracking"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : "div", "class" : "LayerBeritaTerkini-<>"}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : null, "class" : null, "onEachValue" : "data-title"},
+                        "tumbnail_link" : {"tag" : null, "class" : null, "onEachValue" : "data-images"},
+                        "content_link" : {"tag" : null, "class" : null, "onEachValue" : "data-link"},
+                        "channel_name" : {"tag" : null, "class" : null, "onEachValue" : "data-channelname"},
+                        "date" : {"tag" : null, "class" : null, "onEachValue" : "data-date"},
+                        "id" : {"tag" : null, "class" : null, "onEachValue" : "data-id"},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : "data-kanal"}
+                    }
+                ]
+            }
+        }
+    ]
+}

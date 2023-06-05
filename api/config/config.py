@@ -4,13 +4,16 @@ class Config:
     SECRET_KEY=config('SECRET_KEY','secret')
 
 class DevConfig(Config):
-    DEBUG=config('DEBUG',cast=bool)
+    DEBUG=True
+    SQLALCHEMY_ECHO=True
+    SQLALCHEMY_TRACK_MODIFICATIONS=False
 
 class TestConfig(Config):
     pass
 
 class ProdConfig(Config):
-    pass
+    DEBUG=config('DEBUG',cast=bool)
+    SQLALCHEMY_TRACK_MODIFICATIONS=False
 
 config_dict={
     'development':DevConfig,

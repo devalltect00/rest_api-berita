@@ -15,5 +15,10 @@ def create_app(config=config_dict['development']):
     api.add_namespace(news_namespace,path='/api')
     api.add_namespace(auth_namespace,path='/auth')
 
+    # @app.shell_context_processor
+    # def make_shell_context():
+    #     return {
+    #         'User':
+    #     }
 
     return app

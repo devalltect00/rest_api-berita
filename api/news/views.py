@@ -9,6 +9,12 @@ news_namespace=Namespace('Berita',description="Sebuah Namespace untuk Berita")
 # @news_namespace.route('/berita/<int:newsSource_id>')
 @news_namespace.route('/berita/<string:newsSource_id>')
 class NewsSearch(Resource):
+    @news_namespace.doc(
+        description="Mendapatkan data dari website sumber berita yang tersedia",
+        params={
+            "newsSource_id":"Sumber berita yang tersedia"
+        }
+    )
     def get(self,newsSource_id):
 
         """
@@ -29,6 +35,9 @@ class NewsSearch(Resource):
     
 @news_namespace.route('/berita/sumber-berita')
 class NewsSearch(Resource):
+    @news_namespace.doc(
+        description="Mendapatkan daftar sumber berita yang tersedia"
+    )
     def get(self):
 
         """

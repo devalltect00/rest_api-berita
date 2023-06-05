@@ -2,9 +2,15 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from enum import Enum
+from werkzeug.exceptions import InternalServerError
+import os
+
+project_root = os.path.dirname(os.path.abspath(__file__))
 
 # INGREDIENTS = "source,link.json"
-INGREDIENTS = "api\\news\\source,link.json"
+# INGREDIENTS = os.path.join(project_root, 'api', 'news', 'source,link.json')
+INGREDIENTS = os.path.join(project_root, 'source,link.json')
+# INGREDIENTS = "api\\news\\source,link.json"
 
 # class AvailableNewsId(Enum):
 class AvailableNews(Enum):
@@ -32,16 +38,19 @@ class SourceNews:
             self.source = json.load(ingredients)["source"]
 
     def getAvailableNewsSource(self):
-        listNews = []
-        for sourceNews, id in availableNews.items():
-            name = self.source[id-1]["name"]
-            link = self.source[id-1]["link"][0]
-            listNews.append({
-                "name":name,
-                "link":link
-            })
+        try:
+            listNews = []
+            for sourceNews, id in availableNews.items():
+                name = self.source[id-1]["name"]
+                link = self.source[id-1]["link"][0]
+                listNews.append({
+                    "name":name,
+                    "link":link
+                })
 
-        return listNews
+            return listNews
+        except:
+            raise InternalServerError("Conflit when trying get avalibale news source")
 
 class NewsChannel(SourceNews):
     def __init__(self, id):

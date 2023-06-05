@@ -30,8 +30,9 @@ class NewsSearch(Resource):
         """
 
         data = NewsChannel(availableNews[newsSource_id])
+        content = data.getContent()
 
-        return {"content" : data.getContent()}, HTTPStatus.OK
+        return {"content" : content}, HTTPStatus.OK
     
 @news_namespace.route('/berita/sumber-berita')
 class NewsSearch(Resource):
@@ -45,5 +46,6 @@ class NewsSearch(Resource):
         """
 
         sourceNews = SourceNews()
+        availableNewsSource = sourceNews.getAvailableNewsSource()
 
-        return {"sourceNews" : sourceNews.getAvailableNewsSource()}, HTTPStatus.OK
+        return {"sourceNews" : availableNewsSource}, HTTPStatus.OK

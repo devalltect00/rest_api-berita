@@ -4,9 +4,16 @@ from .auth.views import auth_namespace
 from .news.views import news_namespace
 from .config.config import config_dict
 from werkzeug.exceptions import NotFound, MethodNotAllowed
+from flask_cors import CORS
 
 def create_app(config=config_dict['development']):
     app=Flask(__name__)
+
+    #### setup CORS
+
+    CORS(app)
+
+    ####
 
     app.config.from_object(config)
 

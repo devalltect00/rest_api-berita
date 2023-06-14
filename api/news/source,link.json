@@ -4,13 +4,31 @@
             "id" : 1,
             "name" : "CNN Indonesia",
             "link" : [
-                "https://www.cnnindonesia.com/nasional",
-                "https://www.cnnindonesia.com/"
+                "https://www.cnnindonesia.com/",
+                "https://www.cnnindonesia.com/nasional"
             ],
             "status" : "1",
             "message" : "",
             "page" : {
-                "groupEach" : {"tag" : "article", "class" : null}
+                "groupEach" : [
+                    {"tag" : null, "class" : "l_content"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : "article", "class" : null}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : "h2", "class" : "title", "onEachValue" : null},
+                        "tumbnail_link" : {"tag" : "img", "class" : null, "onEachValue" : "src"},
+                        "content_link" : {"tag" : "a", "class" : null, "onEachValue" : "href"},
+                        "channel_name" : {"tag" : "span", "class" : "kanal", "onEachValue" : null},
+                        "synopsis" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "date" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "id" : {"tag" : "a", "class" : null, "onEachValue" : "dtr-idx"},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : "dtr-sec"}
+                    }
+                ]
             }
         },{
             "id" : 2,
@@ -49,19 +67,57 @@
             "status" : "1",
             "message" : "",
             "page" : {
-                "groupEach" : {"tag" : "li", "class" : "clearfix"}
+                "groupEach" : [
+                    {"tag" : null, "class" : "inner-content"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : "li", "class" : "clearfix"}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : "h3", "class" : null, "onEachValue" : null},
+                        "tumbnail_link" : {"tag" : "img", "class" : null, "onEachValue" : "src"},
+                        "content_link" : {"tag" : "a", "class" : null, "onEachValue" : "href"},
+                        "channel_name" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "synopsis" : {"tag" : "p", "class" : null, "onEachValue" : null},
+                        "date" : {"tag" : "span", "class" : "mdk-body-newsimg-date", "onEachValue" : null},
+                        "id" : {"tag" : null, "class" : null, "onEachValue" : "data-id"},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : null}
+                    }
+                ]
             }
         },{
             "id" : 6,
             "name" : "suara",
             "link" : [
+                "https://www.liputan6.com/news",
                 "https://www.liputan6.com/news/peristiwa",
                 "https://www.suara.com/"
             ],
             "status" : "1",
             "message" : "",
             "page" : {
-                "groupEach" : {"tag" : "li", "class" : "headline--bottom-slider__item"}
+                "groupEach" : [
+                    {"tag" : null, "class" : "articles"},
+                    {"tag" : "li", "class" : "headline--bottom-slider__item"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : "article", "class" : null}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : "h4", "class" : "articles--iridescent-list--text-item__title", "onEachValue" : null},
+                        "tumbnail_link" : {"tag" : "img", "class" : null, "onEachValue" : "src"},
+                        "content_link" : {"tag" : "a", "class" : "ui--a articles--iridescent-list--text-item__figure-thumbnail-link", "onEachValue" : "href"},
+                        "channel_name" : {"tag" : "a", "class" : "articles--iridescent-list--text-item__category", "onEachValue" : null},
+                        "synopsis" : {"tag" : null, "class" : "articles--iridescent-list--text-item__summary articles--iridescent-list--text-item__summary-seo", "onEachValue" : null},
+                        "date" : {"tag" : null, "class" : "articles--iridescent-list--text-item__time timeago", "onEachValue" : null},
+                        "id" : {"tag" : null, "class" : null, "onEachValue" : "id"},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : null}
+                    }
+                ]
             }
         },{
             "id" : 7,
@@ -112,7 +168,25 @@
             "status" : "1",
             "message" : "",
             "page" : {
-                "groupEach" : {"tag" : "article", "class" : null}
+                "groupEach" : [
+                    {"tag" : null, "class" : "list-content"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : "article", "class" : null}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : null, "class" : "media__title", "onEachValue" : null},
+                        "tumbnail_link" : {"tag" : "img", "class" : null, "onEachValue" : "src"},
+                        "content_link" : {"tag" : "a", "class" : null, "onEachValue" : "href"},
+                        "channel_name" : {"tag" : "a", "class" : null, "onEachValue" : "dtr-act"},
+                        "synopsis" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "date" : {"tag" : null, "class" : "media__date", "onEachValue" : null},
+                        "id" : {"tag" : "a", "class" : null, "onEachValue" : "dtr-idx"},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : null}
+                    }
+                ]
             }
         },{
             "id" : 12,
@@ -124,7 +198,25 @@
             "status" : "1",
             "message" : "",
             "page" : {
-                "groupEach" : {"tag" : null, "class" : "article__grid"}
+                "groupEach" : [
+                    {"tag" : null, "class" : "latest"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : null, "class" : "article__grid"}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : null, "class" : "article__title", "onEachValue" : null},
+                        "tumbnail_link" : {"tag" : "img", "class" : null, "onEachValue" : "data-src"},
+                        "content_link" : {"tag" : "a", "class" : "article__link", "onEachValue" : "href"},
+                        "channel_name" : {"tag" : null, "class" : "article__subtitle", "onEachValue" : null},
+                        "synopsis" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "date" : {"tag" : "date", "class" : "article__date", "onEachValue" : null},
+                        "id" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : null}
+                    }
+                ]
             }
         },{
             "id" : 13,
@@ -148,7 +240,25 @@
             "status" : "1",
             "message" : "",
             "page" : {
-                "groupEach" : {"tag" : null, "class" : "latest__item"}
+                "groupEach" : [
+                    {"tag" : null, "class" : "latest__wrap"}
+                ],
+                "each" : [
+                    {"tag" : null, "class" : null},
+                    {"tag" : "div", "class" : "latest__item"}
+                ],
+                "content" : [
+                    {
+                        "title" : {"tag" : null, "class" : "latest__title", "onEachValue" : null},
+                        "tumbnail_link" : {"tag" : "img", "class" : null, "onEachValue" : "data-src"},
+                        "content_link" : {"tag" : "a", "class" : null, "onEachValue" : "href"},
+                        "channel_name" : {"tag" : null, "class" : "latest__subtitle", "onEachValue" : null},
+                        "synopsis" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "date" : {"tag" : "date", "class" : "latest__date", "onEachValue" : null},
+                        "id" : {"tag" : null, "class" : null, "onEachValue" : null},
+                        "channel" : {"tag" : null, "class" : null, "onEachValue" : null}
+                    }
+                ]
             }
         },{
             "id" : 15,
@@ -174,6 +284,7 @@
                         "tumbnail_link" : {"tag" : null, "class" : null, "onEachValue" : "data-images"},
                         "content_link" : {"tag" : null, "class" : null, "onEachValue" : "data-link"},
                         "channel_name" : {"tag" : null, "class" : null, "onEachValue" : "data-channelname"},
+                        "synopsis" : {"tag" : null, "class" : null, "onEachValue" : "data-title"},
                         "date" : {"tag" : null, "class" : null, "onEachValue" : "data-date"},
                         "id" : {"tag" : null, "class" : null, "onEachValue" : "data-id"},
                         "channel" : {"tag" : null, "class" : null, "onEachValue" : "data-kanal"}

@@ -1,8 +1,14 @@
 from flask_restx import Namespace,Resource,fields
-
+from flask import request
 
 auth_namespace=Namespace('Otentikasi',description="Sebuah namespace untuk otentikasi")
 
+login_model = auth_namespace.model(
+    'Login',{
+        'email':fields.String(required=True,description="Email"),
+        'password':fields.String(required=True,description="Password")
+    }
+)
 
 @auth_namespace.route('/')
 class HomeAuth(Resource):
@@ -18,5 +24,9 @@ class HomeAuth(Resource):
 @auth_namespace.route('/login')
 class HomeAuth(Resource):
     def post(self):
-        """Belum Diatur"""
+        """
+            Generate a JWT
+        """
+        data=request.get_json()
+
         return {"message": "Belum diatur"}

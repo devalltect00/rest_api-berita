@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Berita</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/welcome.css')}}">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">API Berita</h1>
+    <div class="navigation">
+      <a href="/docs">Dokumentasi</a>
+      <a href="#about">Tentang</a>
+    </div>
+    <p class="description">Selamat datang di API Berita. Dapatkan Berita dan Artikel di Indonesia</p>
+    <a href="/docs" class="cta-button">Telusuri Berita</a>
+    <div class="about-section" id="about">
+      <div class="about-bg"></div>
+      <div class="about-content">
+        <h2>Tentang</h2>
+        <p>Ini adalah sebauh API untuk mendapatkan berita terbaru dan terkini yang ada di seluruh dunia yang didaptkan dari berbagai sumber terpercaya</p>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Ikuti kami di sosial media:</p>
+      <div class="social-media">
+        <a href="https://github.com/devalltect00">
+          <img src="{{url_for('static', filename='images/github-icon.png')}}" alt="GitHub Icon">
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

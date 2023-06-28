@@ -42,7 +42,7 @@ def create_app(config=config_dict['development']):
             "type" : "apiKey",
             "in" : "header",
             "name" : "Authorization",
-            "description" : "Tambahkan JWT token dengan ** Bearer &lt;JWT&gt' untuk memberi hak masuk"
+            "description" : "Tambahkan JWT token dengan ** Bearer &lt;JWT&gt; untuk memberi hak masuk"
         }
     }
 

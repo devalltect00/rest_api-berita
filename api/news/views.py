@@ -88,7 +88,7 @@ class NewsExternalSearchSource(Resource):
         return {"sourceNews" : availableNewsSource}, HTTPStatus.OK
 
 ##### Mengelola berita (external)
-@news_namespace.route('/berita/internal/')
+@news_namespace.route('/berita/internal')
 class NewsInternal(Resource):
 
     @news_namespace.marshal_with(news_detail_model)

@@ -1,12 +1,16 @@
 from ..utils.db import db
+from datetime import datetime
 
-
-class News(db.Model):
+class New(db.Model):
     __tablename__ = 'news'
-    id = db.Column(db.Integer,primary_key=True)
+    id = db.Column(db.Integer(),primary_key=True)
     title=db.Column(db.String(100), nullable=False, unique=True)
-    synopsis=db.Column(db.String(), nullable=False)
-    pictureLink=db.Column(db.String(), nullable=True)
+    synopsis=db.Column(db.Text(), nullable=False)
+    pictureLink=db.Column(db.String(), nullable=False)
+    contentLink=db.Column(db.String(), nullable=False)
+    date=db.Column(db.DateTime(), nullable=False, default=datetime.utcnow())
+    sourceNews=db.Column(db.String(20), nullable=False, default="internal")
+    channelName=db.Column(db.String(20), nullable=True)
     videoLink=db.Column(db.String(), nullable=True)
 
     def __repr__(self):
@@ -20,3 +24,7 @@ class News(db.Model):
     @classmethod
     def get_by_id(cls,id):
         return cls.query.get_or_404(id)
+    
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()

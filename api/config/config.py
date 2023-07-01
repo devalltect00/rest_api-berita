@@ -1,15 +1,16 @@
 import os
+import re
 from decouple import config
 from datetime import timedelta
 from dotenv import load_dotenv
 
 load_dotenv('.env.development.local')
 
-# uri = os.environ['POSTGRES_URL']
-# if uri.startswith("postgres://"):
-    # uri = uri.replace("postgres://", "postgresql://", 1)
+uri = os.environ['POSTGRES_URL']
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
 
-uri = None
+# uri = None
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 

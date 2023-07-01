@@ -1,5 +1,6 @@
 from ..utils.db import db
 from datetime import datetime
+# from sqlalchemy import func
 
 class New(db.Model):
     __tablename__ = 'news'
@@ -9,6 +10,8 @@ class New(db.Model):
     pictureLink=db.Column(db.String(), nullable=False)
     contentLink=db.Column(db.String(), nullable=False)
     date=db.Column(db.DateTime(), nullable=False, default=datetime.utcnow())
+    # date=db.Column(db.Time(), nullable=False, default=datetime.utcnow())
+    # date=db.Column(db.Time(), nullable=False, default=func.current_time)
     sourceNews=db.Column(db.String(20), nullable=False, default="internal")
     channelName=db.Column(db.String(20), nullable=True)
     videoLink=db.Column(db.String(), nullable=True)
@@ -28,3 +31,8 @@ class New(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    # @staticmethod
+    # def setDateTime():
+    #     # time = datetime.utcnow()
+    #     pass

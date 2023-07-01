@@ -46,14 +46,17 @@ Mendapatkan data dari website sumber berita yang tersedia
 
 Cari Sumber berita
 
-Tersedia:
+Sumber berita yang tersedia:
 - "cnn-indonesia",
 - "merdeka",
 - "suara",
 - "detik",
 - "kompas",
 - "pikiran-rakyat",
-- "okezone"
+- "okezone",
+
+Sumber berita yang tersedia dengan tag:
+- "detik-tag-hari_besar"
             """,
         params={
             "newsSource_id":"Sumber berita yang tersedia"
@@ -65,7 +68,12 @@ Tersedia:
             Kumpulan berita berdasarkan sumber berita external
         """
 
-        data = NewsChannel(availableNews[newsSource_id])
+
+        if "tag" in newsSource_id:
+            data = NewsChannel(availableNewsByTag[newsSource_id])
+        else:
+            data = NewsChannel(availableNews[newsSource_id])
+        
         content = data.getContent()
 
         return {"content" : content}, HTTPStatus.OK
@@ -84,8 +92,9 @@ class NewsExternalSearchSource(Resource):
 
         sourceNews = SourceNews()
         availableNewsSource = sourceNews.getAvailableNewsSource()
+        availableNewsSourceByTag = sourceNews.getAvailableNewsSourceByTag()
 
-        return {"sourceNews" : availableNewsSource}, HTTPStatus.OK
+        return {"Available News Sources" : availableNewsSource, "Available News Sources By Tag" : availableNewsSourceByTag}, HTTPStatus.OK
 
 ##### Mengelola berita (external)
 @news_namespace.route('/berita/internal')

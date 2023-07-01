@@ -4,16 +4,15 @@ from bs4 import BeautifulSoup
 from enum import Enum
 from werkzeug.exceptions import InternalServerError
 import os
-from translate import Translator
-# from datetime import datetime
-import calendar
-
-translatorEnglishToIndonesian = Translator(to_lang="id")
 
 project_root = os.path.dirname(os.path.abspath(__file__))
 
+# INGREDIENTS = "source,link.json"
+# INGREDIENTS = os.path.join(project_root, 'api', 'news', 'source,link.json')
 INGREDIENTS = os.path.join(project_root, 'source,link.json')
+# INGREDIENTS = "api\\news\\source,link.json"
 
+# class AvailableNewsId(Enum):
 class AvailableNews(Enum):
     CNN_INDONESIA = 1
     MERDEKA = 5
@@ -31,14 +30,6 @@ availableNews = {
     "kompas" : 12,
     "pikiran-rakyat" : 14,
     "okezone" : 15
-}
-
-class SCOPE_NEWS(Enum):
-    INTERNATIONAL = "internasional"
-    NATIONAL = "nasional"
-
-availableNewsByTag = {
-    "detik-tag-hari_besar" : 16,
 }
 
 class SourceNews:
@@ -60,54 +51,18 @@ class SourceNews:
             return listNews
         except:
             raise InternalServerError("Conflit when trying get avalibale news source")
-        
-    def getAvailableNewsSourceByTag(self):
-        try:
-            listNews = []
-            for sourceNews, id in availableNewsByTag.items():
-                name = self.source[id-1]["name"]
-                link = self.source[id-1]["link"][0]
-                link = self.retrieveModifiedLink(link)
-                listNews.append({
-                    "name":name,
-                    "link":link
-                })
-
-            return listNews
-        except:
-            raise InternalServerError("Conflit when trying get avalibale news source")
-        
-    def retrieveModifiedLink(self, link):
-        scope = SCOPE_NEWS.INTERNATIONAL.value
-        # currentMonth = str(datetime.now().month)
-        currentMonth = str(calendar.month_name[calendar.datetime.datetime.now().month])
-        currentMonth = translatorEnglishToIndonesian.translate(currentMonth).lower()
-        # currentYear = str(datetime.now().year)
-        currentYear = str(calendar.datetime.datetime.now().year)
-        return link.replace("cakupan",scope).replace("bulan",currentMonth).replace("tahun",currentYear)
 
 class NewsChannel(SourceNews):
     def __init__(self, id):
+        # super.__init__(self)
         super().__init__()
         self.id = id
         self.source = self.source[id-1]
         self.name = self.source["name"]
-        self.link = self.retrieveModifiedLink(self.source["link"][0])
 
     def getContent(self, numberOfContent=None):
         #setup
-        # self.page = requests.get(self.source["link"][0])
-        self.page = requests.get(self.link)
-
-        ## to check if the page url is is still same
-        ## if the url redirect or change, return none
-
-        if self.page.url != self.link:
-            if self.link[-1] == "/" and self.page.url+"/" != self.link:
-                return self.page.url, self.link
-
-        # return self.page.url+"/" ,self.link
-
+        self.page = requests.get(self.source["link"][0])
         self.soup = BeautifulSoup(self.page.content, 'html.parser')
 
         groupEach = self.source["page"]["groupEach"][0]
@@ -121,6 +76,8 @@ class NewsChannel(SourceNews):
             groupNews = self.soup.find(class_ = class_)
         else:
             groupNews = None
+
+        # return groupNews
 
         each = self.source["page"]["each"][1]
         tag_ = each["tag"]
@@ -142,6 +99,9 @@ class NewsChannel(SourceNews):
         else:
             groupEachNews = None
 
+        # return groupEachNews
+
+
         if groupEachNews:
             news_data = []
             if numberOfContent:
@@ -149,7 +109,11 @@ class NewsChannel(SourceNews):
             groupNews = groupEachNews
 
             for news in groupNews:
+
+                # return news
+
                 content = self.source["page"]["content"][0]
+
                 title_ = self.getDataContent(content["title"], news, isGetText=True)
                 if not title_:
                     print("Title is None " + str(len(news_data)))
@@ -163,12 +127,6 @@ class NewsChannel(SourceNews):
                 id_ = self.getDataContent(content["id"], news)
                 channel_ = self.getDataContent(content["channel"], news)
 
-                if self.id == 16:
-                    # channel = date_.find("detikNews")
-                    # date_ = date_.split(",")[1].strip()
-                    date_ = date_.replace(channel_name_, "")
-                    pass
-
                 new_data = {
                     "title" : title_,
                     "tumbnail_link" : tumbnail_link_,
@@ -181,7 +139,11 @@ class NewsChannel(SourceNews):
                 }
 
                 news_data.append(new_data)
-                
+                # # break
+                # print(len(news_data))
+                # # if len(news_data) == 4:
+                # if len(news_data) == 5:
+                #     break
             return {
                 "news_source" : self.name,
                 "news_total" : len(news_data),
@@ -204,7 +166,7 @@ class NewsChannel(SourceNews):
                     elif class_:
                         contentData = self.soup.find(class_ = class_)
                     elif onEachValue_:
-                        contentNews = news
+                            contentNews = news
                     else:
                         None
                 else:
@@ -245,20 +207,36 @@ class NewsChannel(SourceNews):
                     if onEachValue_:
                         contentData = contentData[onEachValue_]
                 elif onEachValue_:
+                    # contentData = content
+
+                    # try:
                     contentData = content[onEachValue_]
+                    # except:
+                    #     raise("onEachValue_ =>" + onEachValue_)
+                    # contentData = content
                 else:
+                    # None
                     contentData = "no-content"
                 if isGetText:
+                    # if type(contentData) != "<class 'str'>":
                     if type(contentData) != str:
+                    # if "<" in contentData and ">" in contentData and "=" in contentData:
+                    # print()
                         contentData = contentData.getText().replace("\n","").replace("\t","")
                         
                 return contentData
             except:
+                # return print(f"error get data content, tag data : {tagData}")
                 contentData = "no-content-retrieved"
+                # return print("error get data content, tag data : " + str(tagData))
                 print("error get data content, tag data : " + str(tagData))
                 return contentData
+                
+            
 
         return None
+        
+        
         
 class News():
     def __init__(self, id, title, typeNews):
@@ -267,26 +245,40 @@ class News():
         self.typeNews = typeNews
 
 if __name__ == '__main__':
-    # cnn = NewsChannel(5)
-    # cnn = NewsChannel(16)
-    # print(cnn.source)
+    # INGREDIENTS = "source,link.json"
+    # cnn = NewsChannel(15)
+    # cnn = NewsChannel(14)
+    # cnn = NewsChannel(6)
+    cnn = NewsChannel(5)
+    # cnn = NewsChannel(15, INGREDIENTS)
+    # print(cnn.ingredients)
+    print(cnn.source)
+    print()
+    # cnn.getContent()
+    content = cnn.getContent()
+    # content = cnn.getContent(numberOfContent=2)
+    # content = cnn.getContent(numberOfContent=2)
+    # content = cnn.getContent(numberOfContent=5)
+    # content = cnn.getContent(numberOfContent=1)
+    print(content)
+    print()
+    print("\nlen\n")
+    if content:
+        print(len(content))
+
+    # print(type(cnn.getContent()))
+
+    # output = NewsChannel(availableNews[newsSource_id])
+    # output = NewsChannel(availableNews[cnn-indonesia])
+    # output = NewsChannel(availableNews["cnn-indonesia"])
+    # print("\n--------------\n")
+    # print(output)
     # print()
-    # content = cnn.getContent()
-    # print(content)
+    # print(type(output))
     # print()
-    # print("\nlen\n")
-    # if content:
-    #     print(len(content))
+    # print(output.getContent())
+    # print()
+    # print(type(output.getContent()))
 
     source = SourceNews()
     print(source.getAvailableNewsSource())
-    print(source.getAvailableNewsSourceByTag())
-
-    print()
-
-    newsChannel = NewsChannel(16)
-    print(newsChannel.source)
-
-    print()
-
-    print(newsChannel.getContent())

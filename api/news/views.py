@@ -100,7 +100,7 @@ class NewsExternalSearchSource(Resource):
 @news_namespace.route('/berita/internal')
 class NewsInternal(Resource):
 
-    @news_namespace.marshal_with(news_detail_model)
+    @news_namespace.marshal_with(news_detail_model, envelope = "items")
     @news_namespace.doc(
         description="Mendapatkan semua kumpulan berita internal"
     )
@@ -112,7 +112,7 @@ class NewsInternal(Resource):
 
         news = New.query.all()
 
-        return {"items" : news}, HTTPStatus.OK
+        return news, HTTPStatus.OK
     
     @news_namespace.expect(news_model)
     @news_namespace.marshal_with(news_detail_model)
@@ -149,7 +149,7 @@ class NewsInternal(Resource):
 @news_namespace.route('/berita/internal/<int:news_id>')
 class NewsInternalById(Resource):
 
-    @news_namespace.marshal_with(news_detail_model)
+    @news_namespace.marshal_with(news_detail_model, envelope = "items")
     @news_namespace.doc(
         description="Mendapatkan semua kumpulan berita internal berdasarkan id berita"
     )
@@ -185,7 +185,7 @@ class NewsInternalById(Resource):
 
         db.session.commit()
 
-        return {"items" : news}, HTTPStatus.OK
+        return news, HTTPStatus.OK
 
     @news_namespace.marshal_with(news_detail_model)
     @news_namespace.doc(

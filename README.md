@@ -32,7 +32,6 @@ py runserver.py
 
 | METHOD | ROUTE                                | FUNCTIONALITY                                                          | ACCESS     |
 | ------ | ------------------------------------ | ---------------------------------------------------------------------- | ---------- |
-| GET    | /api/berita/                         | Mendapatkan semua berita secara umum                                   | semua user |
 | GET    | /api/berita/internal/                | Mendapatkan semua berita                                               | semua user |
 | POST   | /api/berita/internal                 | Menyimpan berita yang dibuat                                           | admin      |
 | GET    | /api/berita/internal/{id_berita}     | Mendapatkan semua berita berdasarkan id berita                         | semua user |

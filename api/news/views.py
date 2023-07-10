@@ -112,7 +112,7 @@ class NewsInternal(Resource):
 
         news = New.query.all()
 
-        return news, HTTPStatus.OK
+        return {"items" : news}, HTTPStatus.OK
     
     @news_namespace.expect(news_model)
     @news_namespace.marshal_with(news_detail_model)
@@ -185,7 +185,7 @@ class NewsInternalById(Resource):
 
         db.session.commit()
 
-        return news, HTTPStatus.OK
+        return {"items" : news}, HTTPStatus.OK
 
     @news_namespace.marshal_with(news_detail_model)
     @news_namespace.doc(

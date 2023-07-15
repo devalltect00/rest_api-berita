@@ -27,7 +27,8 @@ class UserTestCase(unittest.TestCase):
         }
         response=self.client.get('/api/berita/internal',headers=headers)
         assert response.status_code == 200
-        assert response.json == []
+        # assert response.json == []
+        assert response.json == {"items" : []}
     
     def testPostInternalNews(self):
         data={

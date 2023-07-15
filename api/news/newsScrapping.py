@@ -171,13 +171,16 @@ class NewsChannel(SourceNews):
 
                 new_data = {
                     "title" : title_,
-                    "tumbnail_link" : tumbnail_link_,
-                    "content_link" : content_link_,
+                    # "tumbnail_link" : tumbnail_link_,
+                    "pictureLink" : tumbnail_link_,
+                    # "content_link" : content_link_,
+                    "contentLink" : content_link_,
                     "channel_name" : channel_name_,
                     "synopsis" : synopsis_,
                     "date" : date_,
                     "id" : id_,
-                    "channel" : channel_
+                    "channel" : channel_,
+                    "sourceNews": "external",
                 }
 
                 news_data.append(new_data)

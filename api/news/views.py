@@ -104,7 +104,7 @@ class NewsInternal(Resource):
     @news_namespace.doc(
         description="Mendapatkan semua kumpulan berita internal"
     )
-    # @jwt_required()
+    @jwt_required()
     def get(self):
         """
             kumpulan berita internal
@@ -119,7 +119,7 @@ class NewsInternal(Resource):
     @news_namespace.doc(
         description="Menyimpan berita internal"
     )
-    # @jwt_required()
+    @jwt_required()
     def post(self):
         """
             Simpan
@@ -153,7 +153,7 @@ class NewsInternalById(Resource):
     @news_namespace.doc(
         description="Mendapatkan semua kumpulan berita internal berdasarkan id berita"
     )
-    # @jwt_required()
+    @jwt_required()
     def get(self, news_id):
         """
             kumpulan berita internal berdasarkan id
@@ -168,7 +168,7 @@ class NewsInternalById(Resource):
     @news_namespace.doc(
         description="Mengubah berita internal"
     )
-    # @jwt_required()
+    @jwt_required()
     def put(self, news_id):
         """
             Ubah
@@ -191,7 +191,7 @@ class NewsInternalById(Resource):
     @news_namespace.doc(
         description="Menghapus berita internal"
     )
-    # @jwt_required()
+    @jwt_required()
     def delete(self, news_id):
         """
             Hapus

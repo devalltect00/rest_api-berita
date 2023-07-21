@@ -7,7 +7,8 @@ from http import HTTPStatus
 from flask_jwt_extended import (create_access_token,
                                 create_refresh_token,
                                 jwt_required,
-                                get_jwt_identity)
+                                get_jwt_identity,
+                                get_raw_jwt,)
 from werkzeug.exceptions import (Conflict,
                                  BadRequest)
 
@@ -143,3 +144,19 @@ class Refresh(Resource):
         access_token = create_access_token(identity=username)
 
         return {'access_token' : access_token}, HTTPStatus.OK
+    
+# @auth_namespace.route('/logout')
+# class Refresh(Resource):
+
+#     @jwt_required()
+#     def post(self):
+#         """
+#             Menghasilkan token JWT (refresh)
+#             generate refresh token
+#         """
+
+#         username = get_jwt_identity()
+
+        
+
+#         return {'message' : "Logout sukses"}, HTTPStatus.OK
